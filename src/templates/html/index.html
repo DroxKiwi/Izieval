@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Izieval</title>
+        <link href="../css/style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="../../../vendor/bootstrap-5.2.2-dist/css/bootstrap.min.css">
+    </head>
+    <body class="container-fluid">
+        <!-- header -->
+        <header class="row justify-content-around align-items-center  text-center">
+            <h1 class="col">Izieval 0.1</h1>
+            <p class="col">Wireframe with Bootstrap 5</p>
+        </header>
+
+        <!-- toolbar -->
+        <div class="row align-items-center toolbar">
+
+            <button type="button" class="col-1 btn btn-success btn-header"> card id<p class="count-card" id="count-card">1</p>Créés</button>
+            <button type="button" class="col-1 btn btn-success btn-header"> item<p class="count-item" id="count-item">0</p>Créés</button>
+            <button type="button" class="col-1 btn btn-success btn-header"> itemEmpty uniq id<p class="count-itemEmpty" id="count-itemEmpty">1</p>Créés</button>
+            <button type="button" class="col-1 btn btn-danger droptarger btn-header" id="deleteEntity" ondrop="drop(event)">-</button>
+            <button class="col-1 btn btn-primary btn-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                Button with data-bs-target
+            </button>
+              
+        </div>
+
+        <!-- Canvas -->
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div>
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+              </div>
+              <div class="dropdown mt-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                  Dropdown button
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        <!-- content
+            A card can only contain 1 card-header className element !!! 
+        -->
+        
+        <main class="row align-items-start justify-content-center">
+          <div id="contentItems" class="col-11 contentItems droptarget" ondrop="drop(event)">
+
+          </div>
+        </main>
+
+        <div class="resizable">
+          <div class="resizers">
+            <div class="resizer top-right"></div>
+            <!--
+            <div class="resizer top-left"></div>
+            <div class="resizer bottom-left"></div>
+            <div class="resizer bottom-right"></div>
+            -->
+          </div>
+        </div>
+
+        <div class="scalable">
+          <div class="scalers">
+            <div class="scaler top-right"></div>
+            <div class="scaler top-left"></div>
+            <div class="scaler bottom-left"></div>
+            <div class="scaler bottom-right"></div>
+          </div>
+        </div>
+
+
+        <!-- temporary zone for cloning content during dropping process -->
+        <div id="cloningzone" class="cloningzone">
+        </div>
+    </body>
+
+    <!-- Bootstrap CDN JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+    <!-- JS script end file -->
+    <script src="../js/resizable.js"></script>
+    <script src="../js/scalable.js"></script>
+    <script src="../js/general.js"></script>
+    <script src="../js/behavior.js"></script>
+    <script src="../js/entity.js"></script>
+</html>
+
+<!--
+item empty should became itemused once an item create or drop inside
+
+<div id="card1" class="item-container card text-center">
+    <div class="card-header">
+        header
+    </div>
+    <div id="itemEmpty1" class="card-body droptarget" ondrop="drop(event)">
+        <h5 class="card-title">carte vide</h5>
+        <p class="card-text">Ajouter un composant</p>
+        <button type="button" class="btn btn-primary" onclick="createTextCard(event)">+</button>
+    </div>
+    <div class="card-footer text-muted">
+        footer
+    </div>
+  </div>
+
+  <div class="separator">
+    <button type="button" class="btn btn-secondary" onclick="createEmptyCard()">+</button>
+  </div>
+
+
+-->
