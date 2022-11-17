@@ -2,7 +2,9 @@
 function makeResizableDiv(div) {
     const element = document.querySelector(div);
     const resizers = document.querySelectorAll(div + ' .resizer')
-    const minimum_size = 100;
+    const minimum_size = 100
+    const maximum_size = 800
+    const open_size = 750
     let original_width = 0;
     let original_height = 0;
     let original_x = 0;
@@ -24,7 +26,29 @@ function makeResizableDiv(div) {
       })
       
       function resize(e) {
-        if (currentResizer.classList.contains('bottom-right')) {
+        // only this one is used
+        if (currentResizer.classList.contains('top-right')) {
+          const width = original_width + (e.pageX - original_mouse_x)
+          const height = original_height - (e.pageY - original_mouse_y)
+          if (width > minimum_size) {
+            element.style.width = width + 'px'
+          }
+          if (height > minimum_size) {
+            element.style.height = height + 'px'
+            element.style.top = original_y + (e.pageY - original_mouse_y) + 'px'
+          }
+          if (height > maximum_size || width > maximum_size){
+            stopResize();
+            element.style.width = open_size + 'px'
+            element.style.height = open_size + 'px'
+            element.style.top = original_y + (e.pageY - original_mouse_y) + 'px'
+          }
+        }
+
+        // ---------------------------------------
+
+
+        else if (currentResizer.classList.contains('bottom-right')) {
           const width = original_width + (e.pageX - original_mouse_x);
           const height = original_height + (e.pageY - original_mouse_y)
           if (width > minimum_size) {
@@ -43,17 +67,6 @@ function makeResizableDiv(div) {
           if (width > minimum_size) {
             element.style.width = width + 'px'
             element.style.left = original_x + (e.pageX - original_mouse_x) + 'px'
-          }
-        }
-        else if (currentResizer.classList.contains('top-right')) {
-          const width = original_width + (e.pageX - original_mouse_x)
-          const height = original_height - (e.pageY - original_mouse_y)
-          if (width > minimum_size) {
-            element.style.width = width + 'px'
-          }
-          if (height > minimum_size) {
-            element.style.height = height + 'px'
-            element.style.top = original_y + (e.pageY - original_mouse_y) + 'px'
           }
         }
         else {
