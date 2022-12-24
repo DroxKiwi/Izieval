@@ -89,11 +89,16 @@ function scaleContentItemAuto(){
 
 function start(){
     scaleContentItemAuto()
-    const container = document.getElementById('container-1')
+    const container = document.getElementById('tableContainer-1')
     container.addEventListener("contextmenu", (event) => {
         event.preventDefault()
-        document.getElementById("canvasButtonTest").click()
-    })        
+        document.getElementById("canvasButtonTestContainer").click()
+    })
+    const item1 = document.getElementById('containerItem-1')
+    item1.addEventListener("contextmenu", (event) => {
+        event.preventDefault()
+        document.getElementById("canvasButtonTestItem1").click()
+    })
 }
 
 function end(){
