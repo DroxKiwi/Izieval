@@ -4,6 +4,21 @@
 
 // create the first card 
 
+//var scalable = document.createElement('div');
+//var scalers = document.createElement('div');
+//var scalerRight = document.createElement('div');
+//var scalerLeft = document.createElement('div');
+//
+//scalable.className = 'scalable col-1';
+//scalers.className = 'scalers';
+//scalerRight.className = 'scaler right';
+//scalerLeft.className = 'scaler left';
+//
+//scalers.appendChild(scalerRight);
+//scalers.appendChild(scalerLeft);
+//scalable.appendChild(scalers);
+//document.getElementById('containerItem-1').appendChild(scalable);
+
 //var card_div = document.createElement('div');
 //var header_card_div = document.createElement('div');
 //var body_card_div = document.createElement('div');
@@ -36,7 +51,7 @@
 //middle_button_card.innerHTML = '+';
 //middle_button_card.addEventListener('click', createTextCard);
 //
-//document.getElementById('contentItems').appendChild(card_div);
+////scalers.appendChild(card_div);
 //
 //card_div.appendChild(header_card_div);
 //card_div.appendChild(body_card_div);
@@ -50,8 +65,9 @@
 //
 //card_div.id = generateIdWithoutIncrementation(index, 'card');
 //body_card_div.id = generateIdWithoutIncrementation(document.getElementById('count-itemEmpty').innerHTML, 'itemEmpty');
-//
-//createSeparator(index);
+//card_div.style.cursor = 'default';
+//document.getElementById('containerItem-1').appendChild(card_div);
+//scalers.appendChild(createSeparator(index));
 
 function createSeparator(index){
     // this is a separator to create new draggable-box
@@ -63,8 +79,8 @@ function createSeparator(index){
     btn_separator.innerHTML = '+';
     btn_separator.addEventListener('click', createEmptyCard);
     separator.appendChild(btn_separator);
-    document.getElementById('contentItems').appendChild(separator);
     separator.id = generateIdWithoutIncrementation(index, 'separator');
+    return separator;
 }
 
 function deleteSeparator(index){
@@ -177,7 +193,7 @@ function createEmptyCard() {
         suppr_button_card.innerHTML = 'supprimer';
         suppr_button_card.addEventListener('click', deleteCardFromHeader);
 
-        document.getElementById('contentItems').appendChild(card_div);
+        document.getElementById('containerItem-1').appendChild(card_div);
 
         header_card_div.appendChild(suppr_button_card);
 

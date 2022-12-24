@@ -21,7 +21,7 @@
             <button type="button" class="col-1 btn btn-success btn-header"> item<p class="count-item" id="count-item">0</p>Créés</button>
             <button type="button" class="col-1 btn btn-success btn-header"> itemEmpty uniq id<p class="count-itemEmpty" id="count-itemEmpty">1</p>Créés</button>
             <button type="button" class="col-1 btn btn-danger droptarger btn-header" id="deleteEntity" ondrop="drop(event)">-</button>
-            <button class="col-1 btn btn-primary btn-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <button id="canvasButtonTest" class="col-1 btn btn-primary btn-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 Button with data-bs-target
             </button>
               
@@ -48,16 +48,64 @@
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </div>
+              <div id="tableContainer-tools" class="TCT col-12">
+                <select title="change align" name="SBTCA" id="SBTCA-1" class="SBTCA">
+                  <option value="start" onclick="positionTableContainer(event)">start</option>
+                  <option value="end" onclick="positionTableContainer(event)">end</option>
+                  <option value="center" onclick="positionTableContainer(event)">center</option>
+                  <option value="baseline" onclick="positionTableContainer(event)">baseline</option>
+                  <option value="stretch" onclick="positionTableContainer(event)">stretch</option>
+                </select>
+                <select title="change justify" name="SBTCJ" id="SBTCJ-1" class="SBTCJ">
+                  <option value="start" onclick="positionTableContainer(event)">start</option>
+                  <option value="end" onclick="positionTableContainer(event)">end</option>
+                  <option value="center" onclick="positionTableContainer(event)">center</option>
+                  <option value="between" onclick="positionTableContainer(event)">between</option>
+                  <option value="around" onclick="positionTableContainer(event)">around</option>
+                </select>
+                <button type="button" id="SBTCM-1" class="SBTC" onclick="scaleContainer(event, '+')">more</button>
+                <button type="button" id="SBTCL-1" class="SBTC" onclick="scaleContainer(event, '-')">less</button>  
+              </div>
             </div>
           </div>
+
 
         <!-- content
             A card can only contain 1 card-header className element !!! 
         -->
-        
-        <main class="row align-items-start justify-content-center">
-          <div id="contentItems" class="col-11 contentItems droptarget" ondrop="drop(event)">
+        <main class="container" id="container-1">
+          <div class="page row justify-content-center align-items-start">
+            <div id="tableContainer-1" class="tableContainer row col-12 align-items-start justify-content-start">
+              <div id="tableContainer-tools" class="TCT col-12">
+                <select title="change align" name="SBTCA" id="SBTCA-1" class="SBTCA col-1">
+                  <option value="start" onclick="positionTableContainer(event)">start</option>
+                  <option value="end" onclick="positionTableContainer(event)">end</option>
+                  <option value="center" onclick="positionTableContainer(event)">center</option>
+                  <option value="baseline" onclick="positionTableContainer(event)">baseline</option>
+                  <option value="stretch" onclick="positionTableContainer(event)">stretch</option>
+                </select>
+                <select title="change justify" name="SBTCJ" id="SBTCJ-1" class="SBTCJ col-1">
+                  <option value="start" onclick="positionTableContainer(event)">start</option>
+                  <option value="end" onclick="positionTableContainer(event)">end</option>
+                  <option value="center" onclick="positionTableContainer(event)">center</option>
+                  <option value="between" onclick="positionTableContainer(event)">between</option>
+                  <option value="around" onclick="positionTableContainer(event)">around</option>
+                </select>
+                <button type="button" id="SBTCM-1" class="SBTC col-1" onclick="scaleContainer(event, '+')">more</button>
+                <button type="button" id="SBTCL-1" class="SBTC col-1" onclick="scaleContainer(event, '-')">less</button>  
+              </div>
 
+
+              <div id="containerItem-1" class="col-2 containerItems" ondrop="drop(event)">
+                <button type="button" id="SBCIM-1" class="SBCI" onclick="scaleContainer(event, '+')">more</button>
+                <button type="button" id="SBCIL-1" class="SBCI" onclick="scaleContainer(event, '-')">less</button>
+                <p>feaonzv,rzùojrzgon ezgmoenz goirzngimorng zoeiml gnezmf lenmfa oablfn eaomq</p>
+              </div>
+              <div id="containerItem-2" class="col-2 containerItems" ondrop="drop(event)">
+                <button type="button" id="SBCIM-2" class="SBCI" onclick="scaleContainer(event, '+')">more</button>
+                <button type="button" id="SBCIL-2" class="SBCI" onclick="scaleContainer(event, '-')">less</button>
+              </div>
+            </div>
           </div>
         </main>
 
@@ -69,14 +117,6 @@
             <div class="resizer bottom-left"></div>
             <div class="resizer bottom-right"></div>
             -->
-          </div>
-        </div>
-
-
-        <div class="scalable col-1">
-          <div class="scalers">
-            <div class="scaler right"></div>
-            <div class="scaler left"></div>
           </div>
         </div>
 
@@ -97,15 +137,40 @@ integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1z
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
-    <!-- JS script end file -->
+    <!-- JS script file // important to keep the same order /_!_\ -->
     <script src="../js/resizable.js"></script>
-    <script src="../js/scalable.js"></script>
     <script src="../js/general.js"></script>
+    <script src="../js/scalable.js"></script>
     <script src="../js/dragable.js"></script>
     <script src="../js/entity.js"></script>
+    <script src="../js/main.js"></script>
 </html>
 
 <!--
+
+<div class="scalable col-1">
+  <div class="scalers">
+    <div id="card1" class="item-container card text-center">
+      <div class="card-header">
+          header
+      </div>
+      <div id="itemEmpty1" class="card-body droptarget" ondrop="drop(event)">
+          <h5 class="card-title">carte vide</h5>
+          <p class="card-text">Ajouter un composant</p>
+          <button type="button" class="btn btn-primary" onclick="createTextCard(event)">+</button>
+      </div>
+      <div class="card-footer text-muted">
+          footer
+      </div>
+    </div>
+    <div class="scaler right"></div>
+    <div class="scaler left"></div>
+  </div>
+</div>
+
+
+
+
 item empty should became itemused once an item create or drop inside
 
 <div id="card1" class="item-container card text-center">
@@ -121,6 +186,15 @@ item empty should became itemused once an item create or drop inside
         footer
     </div>
   </div>
+
+
+  <div class="scalable col-1">
+  <div class="scalers">
+
+    <div class="scaler right"></div>
+    <div class="scaler left"></div>
+  </div>
+</div>
 
   <div class="separator">
     <button type="button" class="btn btn-secondary" onclick="createEmptyCard()">+</button>

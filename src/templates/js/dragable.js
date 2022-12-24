@@ -20,6 +20,7 @@ function drop(ev) {
   ev.preventDefault();
   //if (isDropInContainerDraggableObect(ev.target)){
   //}
+  console.log("enter draggable function");
   var data = ev.dataTransfer.getData("text");
   if (ev.target.id == 'deleteEntity'){
     node = document.getElementById(data);
@@ -49,6 +50,7 @@ function dragStop(e){
 // called when drop is starting
 function dragStart(e){
   cloningEntity(e);
+  scaleContentItemAuto();
 }
 
 // Start the process for dropping zone during the dragging process
@@ -144,29 +146,6 @@ function verifyIfUniq(id){
   }
   else return true;
 }
-
-// step functions
-
-// Thoses functions will be used to start a session (load code), end it (save code) and refresh it (verify code)
-// In the case of the refresh function, the point is to see the condition of the code, if an element is lonely then he can't have a delete button by exemple
-
-function start(){
-
-}
-
-function end(){
-
-}
-
-function refresh(){
-  if (verifyIfUniq('itemEmpty')){
-    console.log('only one item empty');
-  }
-  else {
-    console.log('more than one item empty');
-  }
-}
-
 
 /*
 

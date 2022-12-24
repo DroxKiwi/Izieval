@@ -67,6 +67,7 @@ $lvlMapping: (
 
 .droptarget {
     background-color: rgb(225, 225, 225);
+    height: 100px;
 }
 
 .btn-header{
@@ -86,21 +87,32 @@ $lvlMapping: (
     visibility: hidden;
 }
 
-
-main{
-    height: auto;
-    border: 1px solid #000000;
-    background-color: red;
-}
-
 .grid-1{
     background-color: blue;
     border: 2px solid green;
 }
 
-.contentItems{
-    border: 2px solid yellow;
-    height: 200px;
+main{
+  border: 5px solid green;
+  height: auto;
+}
+
+.page{
+  border: 5px solid purple;
+  height: 1920px;
+  padding: 2%;
+}
+
+.tableContainer{
+  height: auto;
+  border: 5px solid #00f2ff;
+  background-color: red;
+}
+
+.containerItems{
+    border: 5px solid yellow;
+    height: auto;
+    cursor : move;
 }
 
 // case management
@@ -158,11 +170,8 @@ main{
 
   .scalable {
     background: brown;
-    width: 100px;
-    height: 100px;
-    position: fixed;
-    bottom: 10px;
-    left: 1000px;
+    height: auto;
+    position: absolute;
   }
 
   .scalable .scalers{
@@ -179,6 +188,17 @@ main{
     background: white;
     border: 3px solid #4286f4;
     position: absolute;
+  }
+
+  .scalable .scalers .scaler.left{
+    left: -5px;
+    top: 50%;
+    cursor: w-resize; /*resizer cursor*/
+  }
+  .scalable .scalers .scaler.right{
+    right: -5px;
+    top: 50%;
+    cursor: e-resize;
   }
   
   .scalable .scalers .scaler.top-left{

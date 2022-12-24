@@ -15,13 +15,13 @@ function generateIdWithoutIncrementation(actualId, typeObject){
     return id;
 }
 
-// research function 
+// research DOM function 
 
 // return a table with all entity by ID 
 // To work it need to be part of the system notation : entityName-INDEX or it will not work
 
-const errorMargin = 50;
 function findAll(id){
+    const errorMargin = 50;
     var errorMarginTemp = errorMargin; // this local const is here to define when we stop to search (user can create and delete entity and that make the count not linear (1, 3, 8, 9, .., n))
     var i = 1;
     var temp = id+'-'+i;
@@ -56,4 +56,55 @@ function findOne(id, index){
 function getIndexFromFullId(id){
     var idSplit = id.split('-');
     return idSplit[1];
+}
+
+function isEmpty(element){
+    children = element.childNodes;
+    //console.log(children);
+    if (children.length > 1){
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function scaleContentItemAuto(){
+    const emptyContentBasicHeight = 100;
+    let contentItems = findAll('contentItem');
+    for (let i = 0; i < contentItems.length; i++){
+        if (isEmpty(contentItems[i])){
+            contentItems[i].style.height = emptyContentBasicHeight + 'px'
+        }
+        else {
+            contentItems[i].style.height = 'auto';
+        }
+    }
+}
+
+// step functions
+
+// Thoses functions will be used to start a session (load code), end it (save code) and refresh it (verify code)
+// In the case of the refresh function, the point is to see the condition of the code, if an element is lonely then he can't have a delete button by exemple
+
+function start(){
+    scaleContentItemAuto()
+    const container = document.getElementById('container-1')
+    container.addEventListener("contextmenu", (event) => {
+        event.preventDefault()
+        document.getElementById("canvasButtonTest").click()
+    })        
+}
+
+function end(){
+
+}
+
+function refresh(){
+  if (verifyIfUniq('itemEmpty')){
+    console.log('only one item empty');
+  }
+  else {
+    console.log('more than one item empty');
+  }
 }
