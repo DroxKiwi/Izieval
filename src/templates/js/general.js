@@ -58,6 +58,7 @@ function getIndexFromFullId(id){
     return idSplit[1];
 }
 
+// verify if a node is empty, do not have children
 function isEmpty(element){
     children = element.childNodes;
     //console.log(children);
@@ -69,6 +70,8 @@ function isEmpty(element){
     }
 }
 
+
+// function in work, it is used to scale empty container
 function scaleContentItemAuto(){
     const emptyContentBasicHeight = 100;
     let contentItems = findAll('contentItem');
@@ -80,36 +83,4 @@ function scaleContentItemAuto(){
             contentItems[i].style.height = 'auto';
         }
     }
-}
-
-// step functions
-
-// Thoses functions will be used to start a session (load code), end it (save code) and refresh it (verify code)
-// In the case of the refresh function, the point is to see the condition of the code, if an element is lonely then he can't have a delete button by exemple
-
-function start(){
-    scaleContentItemAuto()
-    const container = document.getElementById('tableContainer-1')
-    container.addEventListener("contextmenu", (event) => {
-        event.preventDefault()
-        document.getElementById("canvasButtonTestContainer").click()
-    })
-    const item1 = document.getElementById('containerItem-1')
-    item1.addEventListener("contextmenu", (event) => {
-        event.preventDefault()
-        document.getElementById("canvasButtonTestItem1").click()
-    })
-}
-
-function end(){
-
-}
-
-function refresh(){
-  if (verifyIfUniq('itemEmpty')){
-    console.log('only one item empty');
-  }
-  else {
-    console.log('more than one item empty');
-  }
 }

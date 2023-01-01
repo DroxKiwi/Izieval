@@ -1,6 +1,6 @@
 // Main code
 
-// V.1 
+// v1 
 
 // create the first card 
 
@@ -68,6 +68,8 @@
 //card_div.style.cursor = 'default';
 //document.getElementById('containerItem-1').appendChild(card_div);
 //scalers.appendChild(createSeparator(index));
+
+//v2
 
 function createSeparator(index){
     // this is a separator to create new draggable-box
@@ -193,9 +195,8 @@ function createEmptyCard() {
         suppr_button_card.innerHTML = 'supprimer';
         suppr_button_card.addEventListener('click', deleteCardFromHeader);
 
-        document.getElementById('containerItem-1').appendChild(card_div);
-
-        header_card_div.appendChild(suppr_button_card);
+        header_card_div.appendChild(suppr_button_card)
+        document.getElementById('containerItem')
 
         card_div.appendChild(header_card_div);
         card_div.appendChild(body_card_div);
@@ -276,5 +277,87 @@ function createTextCard(e) {
         //card_div.appendChild(header_card_div);
         //card_div.appendChild(body_card_div);
         //card_div.appendChild(footer_card_div);
+    }
+}
+
+// v3
+
+
+
+// creation of offcanvas is here only to test implementation
+
+function newCanvas(ind){
+    var canvas = document.createElement('div')
+    canvas.className = 'canvas'
+    canvas.id = generateIdWithoutIncrementation(ind, 'canvas')
+
+    var offcanvas = document.createElement('div')
+    offcanvas.id = generateIdWithoutIncrementation(ind, 'offcanvas')
+    offcanvas.className = 'offcanvas offcanvas-start'
+    offcanvas.tabIndex = '-1'
+    var target = offcanvas.id
+
+    var offcanvasHeader = document.createElement('div')
+    offcanvasHeader.className = 'offcanvas-header'
+    offcanvas.appendChild(offcanvasHeader)
+
+    var offcanvasTitle = document.createElement('h5')
+    offcanvasTitle.className = 'offcanvas-title'
+    offcanvasTitle.textContent = 'offcanvas test tools'
+    offcanvasHeader.appendChild(offcanvasTitle)
+    
+    var offcanvasBody = document.createElement('div')
+    offcanvasBody.className = 'offcanvas-body'
+    var dropdown = document.createElement('div')
+    dropdown.className = 'dropdown mt-3'
+    var btn = document.createElement('button')
+    btn.className = 'btn btn-secondary dropdown-toggle'
+    btn.type = 'button'
+    btn.dataBsToggle = 'dropdown'
+    btn.value = 'Dropdown'
+    var ul = document.createElement('ul')
+    ul.className = 'dropdown-menu'
+    var li = document.createElement('li')
+    var a = document.createElement('a')
+    a.className = 'dropdown-item'
+    a.href = "#"
+    offcanvas.appendChild(offcanvasBody)
+
+    var canvasTools = document.createElement('div')
+    canvasTools.className = 'TCT col-12'
+    offcanvasBody.appendChild(canvasTools)
+
+    var hideAction = document.createElement('div')
+    hideAction.id = generateIdWithoutIncrementation(ind, 'canvasAction')
+    hideAction.className = "hide"
+    hideAction.dataBsToggle = "offcanvas"
+    hideAction.dataBsTarget = "#" + target
+
+    canvas.appendChild(hideAction)
+    canvas.appendChild(offcanvas)
+
+    return canvas
+}
+
+
+function newTableContainer(ind){
+    var tableContainer = document.createElement('div')
+    tableContainer.className = "tableContainer row col-3 align-items-start justify-content-start"
+    tableContainer.id = generateIdWithoutIncrementation(ind, 'tableContainer')
+    return tableContainer
+}
+
+function addContainer(tc, ca){
+    var page = document.getElementById('page')
+    var hideSection = document.getElementById('hideSection')
+    page.appendChild(tc)
+    hideSection.appendChild(ca)
+}
+
+function createGroupContainer(nb){
+    for (let i = 0; i < nb; i++){
+        let tc = newTableContainer(i+1)
+        let ca = newCanvas(i+1)
+        addContainer(tc, ca)
     }
 }

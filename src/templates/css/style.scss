@@ -88,31 +88,36 @@ $lvlMapping: (
 }
 
 .grid-1{
-    background-color: blue;
+    background-color: blvisibilityue;
     border: 2px solid green;
 }
 
 main{
   border: 5px solid green;
-  height: auto;
+  padding-right: 2%;
+}
+
+.renderpdf{
+  height: 100%;
+  width: 100%;
 }
 
 .page{
   border: 5px solid purple;
-  height: 1920px;
-  padding: 2%;
+  height: 1810px;
 }
 
 .tableContainer{
   height: auto;
   border: 5px solid #00f2ff;
   background-color: red;
+  height: 470px;
 }
 
 .containerItems{
     border: 5px solid yellow;
-    height: auto;
     cursor : move;
+    height: 150px;
 }
 
 // case management
@@ -220,4 +225,27 @@ main{
     right: -5px;
     bottom: -5px;
     cursor: nwse-resize;
+  }
+
+  // hiden components
+
+  .hide {
+    visibility: hidden;
+  }
+
+
+
+  .resize-drag {
+    width: 120px;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 1rem;
+    background-color: #29e;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+  
+    touch-action: none;
+  
+    /* This makes things *much* easier */
   }
