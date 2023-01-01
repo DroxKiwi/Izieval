@@ -8,6 +8,12 @@ interact(element)
 
     listeners: {
       move (event) {
+        
+        // code added to actualize the PDF viewer
+        console.log('move')
+        renderjspdf()
+        //
+
         var target = event.target
         //var x = (parseFloat(target.getAttribute('data-x')) || 0)
         //var y = (parseFloat(target.getAttribute('data-y')) || 0)
@@ -59,6 +65,11 @@ interact(element)
     inertia: true
   })
   .on('dragmove', function (event) {
+
+    // code added to actualize the PDF viewer
+    console.log('drag')
+    renderjspdf()
+    //
     x += event.dx
     y += event.dy
 

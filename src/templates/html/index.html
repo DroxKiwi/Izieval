@@ -18,7 +18,7 @@
 
         <!-- toolbar -->
         <div class="row align-items-center toolbar">
-          <button type="button" class="btn btn-success col-1" onclick="testPDF()">pdf</button>
+          <button type="button" class="btn btn-success col-1" onclick="renderjspdf()">pdf</button>
         </div>
 
         <!-- Main content
@@ -81,7 +81,8 @@
           </div>
 
           <div id="renderPDF" class="col-4 renderpdf">
-            <embed id="pdfviewer" src="../pdf/a4.pdf" width="600px" height="850px" />
+            <div class="toppdfviewer" id="toppdfviewer" onclick="sizePDFviewer()"></div>
+            <embed id="pdfviewer" src="../pdf/a4.pdf" width="500px" height="720px" />
           </div>
 
           
