@@ -105,6 +105,14 @@ main {
   margin-right: 90%;
 }
 
+.btncheckbox {
+  color: white;
+}
+
+.dateTime{
+  color: white;
+}
+
 .page {
   border: 5px solid purple;
   height: 1810px;
@@ -121,6 +129,38 @@ main {
   border: 5px solid yellow;
   cursor: move;
   height: 150px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.resize-drag {
+  width: 120px;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 1rem;
+  background-color: #29e;
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+  touch-action: none;
+  /* This makes things *much* easier */
+  box-sizing: border-box;
+}
+
+.new-item {
+  width: 120px;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 1rem;
+  background-color: #29e;
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+  touch-action: none;
+  /* This makes things *much* easier */
+  box-sizing: border-box;
 }
 
 .resizable {
@@ -228,21 +268,4 @@ main {
   right: -5px;
   bottom: -5px;
   cursor: nwse-resize;
-}
-
-.hide {
-  visibility: hidden;
-}
-
-.resize-drag {
-  width: 120px;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 1rem;
-  background-color: #29e;
-  color: white;
-  font-size: 20px;
-  font-family: sans-serif;
-  touch-action: none;
-  /* This makes things *much* easier */
 }/*# sourceMappingURL=style.css.map */

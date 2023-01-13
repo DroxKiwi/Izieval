@@ -20,3 +20,16 @@ function sizePDFviewer(){
     var pdfviewer = document.getElementById('pdfviewer')
     pdfviewer.hidden = true
 }
+
+function autoRenderer(){
+    var autoRenderer = document.getElementById("autorenderer")
+    var value = autoRenderer.value
+    if (value == "false"){
+        autoRenderer.value = "true"
+        autoRenderer.className = 'btn btn-success col-1'
+    }
+    else {
+        autoRenderer.value = "false"
+        autoRenderer.className = 'btn btn-secondary col-1'
+    }
+}

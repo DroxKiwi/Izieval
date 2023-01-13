@@ -361,3 +361,13 @@ function createGroupContainer(nb){
         addContainer(tc, ca)
     }
 }
+
+function newItemBlueCube(){
+    var page = document.getElementById('page')
+    var blueCube = document.getElementById('grid-snap')
+    clone = blueCube.cloneNode(true)
+    clone.id = "grid-snap-2"
+    //clone.className = 'resize-drag'
+    console.log(clone)
+    page.appendChild(clone)
+}

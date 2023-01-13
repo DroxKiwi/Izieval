@@ -6,6 +6,7 @@
 function start(){
   scaleContentItemAuto()
   canvasInit()
+  setInterval(refresh, 1000);
 }
 
 function end(){
@@ -25,8 +26,11 @@ function initNewDocument(){
 }
 
 function refresh(){
-
+  // mise en place d'une date dynamique 
+  const d = new Date();
+  document.getElementById("date").innerHTML = d.toLocaleTimeString();
 }
+
 
 // first call to start the document
 

@@ -18,7 +18,9 @@
 
         <!-- toolbar -->
         <div class="row align-items-center toolbar">
+          <div class="col-1 dateTime" id="date"></div>
           <button type="button" class="btn btn-success col-1" onclick="renderjspdf()">pdf</button>
+          <button type="button" class="btn btn-secondary col-1" id="autorenderer" value="false" onclick="autoRenderer()">automatic renderer</button>
         </div>
 
         <!-- Main content
@@ -27,10 +29,13 @@
         <main class="row justify-content-end">
           <div id="hideSection" class="hideSection">
             <!-- Canvas test for container items -->
+          
 
             <!-- trigger of the canvas action -->
             <div id="canvasAction" class="hide" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-test">
             </div>
+          </div>
+
 
             <!-- canvas -->
               <div id="canvas" class="canvas">
@@ -51,34 +56,14 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                       </ul>
                     </div>
-                    <div id="canvas-tools-1" class="TCT col-12">
-                      <p>container tools</p>
-                      <select title="change align" name="SBTCA" id="SBTCA-1" class="SBTCA">
-                        <option selected="selected" value="start" onclick="positionTableContainer(event)">start</option>
-                        <option value="end" onclick="positionTableContainer(event)">end</option>
-                        <option value="center" onclick="positionTableContainer(event)">center</option>
-                        <option value="baseline" onclick="positionTableContainer(event)">baseline</option>
-                        <option value="stretch" onclick="positionTableContainer(event)">stretch</option>
-                      </select>
-                      <select title="change justify" name="SBTCJ" id="SBTCJ-1" class="SBTCJ">
-                        <option selected="selected" value="start" onclick="positionTableContainer(event)">start</option>
-                        <option value="end" onclick="positionTableContainer(event)">end</option>
-                        <option value="center" onclick="positionTableContainer(event)">center</option>
-                        <option value="between" onclick="positionTableContainer(event)">between</option>
-                        <option value="around" onclick="positionTableContainer(event)">around</option>
-                      </select>
-                      <button type="button" name="SBTCM" id="SBTCM-1" class="SBTC" onclick="scaleContainer(event, '+')">more</button>
-                      <button type="button" name="SBTCL" id="SBTCL-1" class="SBTC" onclick="scaleContainer(event, '-')">less</button>  
-                    </div>
-                    <p>item 1 tools</p>
-                    <div id="canvas-tools-2" class="TCT col-12">
-                      <button type="button" name="SBCIM" id="SBCIM-1" class="SBCI" onclick="scaleContainer(event, '+')">more</button>
-                      <button type="button" name="SBCIL" id="SBCIL-1" class="SBCI" onclick="scaleContainer(event, '-')">less</button>
+
+                    tools 2.0 / new items dragable
+                    <div id="new-grid-snap" class="new-item" onclick="test(event)">
+                      <p>click me</p>
                     </div>
                   </div>
                 </div>
             </div>
-          </div>
 
           <div id="renderPDF" class="col-4 renderpdf">
             <div class="toppdfviewer" id="toppdfviewer" onclick="sizePDFviewer()"></div>
@@ -87,25 +72,13 @@
 
           
           <div id="page" class="page col-8">
-            <div id="grid-snap" class="resize-drag">
+            <div id="grid-snap" name="grid-snap" class="resize-drag" onclick="test(event)">
               Resize from any edge or corner
             </div>
             egozihfds<br>
             fdsjop
           </div>
         </main>
-
-        <!-- 
-        <div class="resizable">
-          <div class="resizers">
-            <div class="resizer top-right"></div>
-            <div class="resizer top-left"></div>
-            <div class="resizer bottom-left"></div>
-            <div class="resizer bottom-right"></div>
-          </div>
-        </div>
-                    -->
-
 
         <!-- temporary zone for cloning content during dropping process -->
         <div id="cloningzone" class="cloningzone">
@@ -165,7 +138,7 @@ integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1z
 
 
 
-item empty should became itemused once an item create or drop inside
+item empty should became itemused once an item create is drop inside
 
 <div id="card1" class="item-container card text-center">
     <div class="card-header">
@@ -195,4 +168,42 @@ item empty should became itemused once an item create or drop inside
   </div>
 
 
+
+  // Last tools selection 
+
+  <div id="canvas-tools-1" class="TCT col-12">
+  <p>container tools</p>
+  <select title="change align" name="SBTCA" id="SBTCA-1" class="SBTCA">
+    <option selected="selected" value="start" onclick="positionTableContainer(event)">start</option>
+    <option value="end" onclick="positionTableContainer(event)">end</option>
+    <option value="center" onclick="positionTableContainer(event)">center</option>
+    <option value="baseline" onclick="positionTableContainer(event)">baseline</option>
+    <option value="stretch" onclick="positionTableContainer(event)">stretch</option>
+  </select>
+  <select title="change justify" name="SBTCJ" id="SBTCJ-1" class="SBTCJ">
+    <option selected="selected" value="start" onclick="positionTableContainer(event)">start</option>
+    <option value="end" onclick="positionTableContainer(event)">end</option>
+    <option value="center" onclick="positionTableContainer(event)">center</option>
+    <option value="between" onclick="positionTableContainer(event)">between</option>
+    <option value="around" onclick="positionTableContainer(event)">around</option>
+  </select>
+  <button type="button" name="SBTCM" id="SBTCM-1" class="SBTC" onclick="scaleContainer(event, '+')">more</button>
+  <button type="button" name="SBTCL" id="SBTCL-1" class="SBTC" onclick="scaleContainer(event, '-')">less</button>  
+</div>
+<p>item 1 tools</p>
+<div id="canvas-tools-2" class="TCT col-12">
+  <button type="button" name="SBCIM" id="SBCIM-1" class="SBCI" onclick="scaleContainer(event, '+')">more</button>
+  <button type="button" name="SBCIL" id="SBCIL-1" class="SBCI" onclick="scaleContainer(event, '-')">less</button>
+</div>
+
+  // Last resizable div
+
+  <div class="resizable">
+    <div class="resizers">
+      <div class="resizer top-right"></div>
+      <div class="resizer top-left"></div>
+      <div class="resizer bottom-left"></div>
+      <div class="resizer bottom-right"></div>
+    </div>
+  </div>
 -->
