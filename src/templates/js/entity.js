@@ -362,6 +362,8 @@ function createGroupContainer(nb){
     }
 }
 
+// v4
+
 function newItemBlueCube(){
     var page = document.getElementById('page')
     var blueCube = document.getElementById('grid-snap')

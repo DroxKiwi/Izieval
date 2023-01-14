@@ -163,6 +163,20 @@ main {
   box-sizing: border-box;
 }
 
+.zone{
+  height: 500px;
+  width: 500px;
+  background-color: #d48787be;
+  opacity: 100%;
+}
+
+.zone:hover{
+  opacity: 50%;
+}
+
+
+/* --------------------------- */
+
 .resizable {
   background: white;
   width: 100px;
