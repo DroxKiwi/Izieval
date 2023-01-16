@@ -1,18 +1,25 @@
 // Used to generate id for new elements
-function generateIdWithIncrementation(actualId, typeObject, doc){
+function generateIdWithIncrementation(id){
     // using incrementation to generate unique id for card_div
-    var parsSumEntitys = parseInt(actualId, 10) + 1;
-    var id = typeObject + '-' + parsSumEntitys;
-    document.getElementById(doc).innerHTML = parsSumEntitys; 
-    return id;
+    //var parsSumEntitys = parseInt(index, 10) + 1;
+    var tabElement = findAll(id)
+    if (tabElement.length != 0){
+        var lastElementId = tabElement[tabElement.length-1].id
+    }
+    else {
+        var lastElementId = id + '-0'
+    }
+    var newIndex = parseInt(getOnlyIndex(lastElementId), 10) + 1
+    var newId = id + '-' + newIndex;
+    return newId;
 }
 
 // Used to generate id for new element without incrementing the last count
-function generateIdWithoutIncrementation(actualId, typeObject){
+function generateIdWithoutIncrementation(id, index){
     // using incrementation to generate unique id for card_div4
-    var parsSumEntitys = parseInt(actualId, 10);
-    var id = typeObject + '-' + parsSumEntitys;
-    return id;
+    var parsSumEntitys = parseInt(index, 10);
+    var newId = id + '-' + parsSumEntitys;
+    return newId;
 }
 
 // research DOM function 
@@ -26,7 +33,6 @@ function findAll(id){
     var i = 1;
     var temp = id+'-'+i;
     var tab = [];
-    var ok = true;
     while ((document.getElementById(temp)) || (errorMarginTemp != 0)){
         if (document.getElementById(temp)){
             tab[i-1] = document.getElementById(temp);
@@ -53,9 +59,14 @@ function findOne(id, index){
 }
 
 // return only the index of an element from id
-function getIndexFromFullId(id){
+function getOnlyIndex(id){
     var idSplit = id.split('-');
     return idSplit[1];
+}
+
+function getOnlyId(id){
+    var idSplit = id.split('-');
+    return idSplit[0];
 }
 
 // verify if a node is empty, do not have children

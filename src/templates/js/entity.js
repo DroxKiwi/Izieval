@@ -97,8 +97,8 @@ function deleteCardFromHeader(e){
     element = e.target.parentNode.parentNode;
     // using deleteEntity from main.js
     var id = element.id;
-    // getIndexFromFullId() from general.js
-    deleteEntity(document.getElementById('separator-'+getIndexFromFullId(id)));
+    // getOnlyIndex() from general.js
+    deleteEntity(document.getElementById('separator-'+getOnlyIndex(id)));
     deleteEntity(element);
     // refresh() from behavior.js
     refresh();
@@ -364,12 +364,74 @@ function createGroupContainer(nb){
 
 // v4
 
-function newItemBlueCube(){
+function newItem(e){
     var page = document.getElementById('page')
-    var blueCube = document.getElementById('grid-snap')
-    clone = blueCube.cloneNode(true)
-    clone.id = "grid-snap-2"
-    //clone.className = 'resize-drag'
-    console.log(clone)
-    page.appendChild(clone)
+    if (e.target.className = "grid-snap"){
+        newGridSnap()
+    }    
+}
+
+function newGridSnap(){
+    var page = document.getElementById('page')
+    var div = document.createElement('div')
+    var p = document.createElement('p')
+    p.innerHTML = "You can move me now !"
+    p.style.zIndex = "-2"
+    div.style.zIndex = "-1"
+    div.appendChild(p)
+    div.id = generateIdWithIncrementation('gridSnap')
+    console.log(div.id)
+    div.className = "draggable yes-drop element"
+    div.addEventListener("dblclick", modifElement)
+    div.addEventListener("click", selectElement)
+    page.appendChild(div)
+}
+
+function selectElement(e){
+    console.log('CTRL pressed during click:', e.ctrlKey);
+    console.log('ALT pressed during click:', e.altKey);
+    element = e.target
+    console.log(element)
+    if (e.ctrlKey && !e.altKey){
+        if (getOnlyId(element.id) == 'gridSnap'){
+            element.classList.add("selected");
+        }
+        else if (getOnlyId(element.parentNode.id) == 'gridSnap'){
+            element.parentNode.classList.add("selected")
+        }
+    }
+    else if (e.altKey && !e.ctrlKey){
+        var elTab = findAll('gridSnap')
+        for (let i = 0; i < elTab.length; i++){
+            elTab[i].classList.add("selected")
+        }
+    }
+    else if (!e.ctrlKey && !e.altKey){
+        var elTab = findAll('gridSnap')
+        for (let i = 0; i < elTab.length; i++){
+            elTab[i].classList.remove("selected")
+        }
+        if (getOnlyId(element.id) == 'gridSnap'){
+            element.classList.add("selected");
+        }
+        else if (getOnlyId(element.parentNode.id) == 'gridSnap'){
+            element.parentNode.classList.add("selected")
+        }
+    }
+    else if (getOnlyId(element.id) == "page") {
+        var elTab = findAll('gridSnap')
+        for (let i = 0; i < elTab.length; i++){
+            elTab[i].classList.remove("selected")
+        }
+    }
+}
+
+function modifElement(e){
+    element = e.target
+    if (getOnlyId(element.id) == 'gridSnap' || getOnlyId(element.parentNode.id) == 'gridSnap'){
+        console.log("dblclick true")
+    }
+    else {
+        console.log("dblclick false")
+    }
 }

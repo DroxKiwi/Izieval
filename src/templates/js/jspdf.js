@@ -1,5 +1,13 @@
 
+
+const PDFview = document.getElementById('pdfviewer')
+PDFview.addEventListener("load", (event) => {
+  console.log("PDF load");
+  document.body.style.cursor = "default"
+});
+
 function renderjspdf(){
+    document.body.style.cursor = "wait"
     const render = document.getElementById('pdfviewer')
     const screenshotTarget = document.getElementById('page')
 

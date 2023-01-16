@@ -1,5 +1,5 @@
 // target elements with the "draggable" class
-interact('.draggable')
+interact('.selected')
   .draggable({
     // enable inertial throwing
     inertia: true,
@@ -94,7 +94,7 @@ window.dragMoveListener = dragMoveListener
 // enable draggables to be dropped into this
 interact('.dropzone').dropzone({
   // only accept elements matching this CSS selector
-  accept: '#yes-drop',
+  accept: '.yes-drop',
   // Require a 75% element overlap for a drop to be possible
   overlap: 0.75,
 

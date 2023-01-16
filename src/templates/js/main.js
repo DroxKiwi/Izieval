@@ -7,6 +7,9 @@ function start(){
   scaleContentItemAuto()
   canvasInit()
   setInterval(refresh, 1000);
+  window.addEventListener("load", (event) => {
+    console.log("page is fully loaded");
+  });  
 }
 
 function end(){

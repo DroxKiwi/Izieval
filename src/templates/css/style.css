@@ -16,9 +16,11 @@ nav {
 .lvl-1 {
   z-index: 2;
 }
+
 .lvl-2 {
   z-index: 3;
 }
+
 .lvl-3 {
   z-index: 4;
 }
@@ -28,16 +30,19 @@ nav {
   position: relative;
   width: 100%;
 }
+
 .container-items-1 {
   height: 200px;
   padding: 10px;
   border: 1px solid #aaaaaa;
 }
+
 .container-items-2 {
   height: 300px;
   padding: 10px;
   border: 1px solid #aaaaaa;
 }
+
 .container-items-3 {
   height: 400px;
   padding: 10px;
@@ -109,7 +114,7 @@ main {
   color: white;
 }
 
-.dateTime{
+.dateTime {
   color: white;
 }
 
@@ -135,8 +140,8 @@ main {
   visibility: hidden;
 }
 
-.resize-drag {
-  width: 120px;
+.draggable {
+  width: 200px;
   border-radius: 8px;
   padding: 20px;
   margin: 1rem;
@@ -150,7 +155,7 @@ main {
 }
 
 .new-item {
-  width: 120px;
+  width: 200px;
   border-radius: 8px;
   padding: 20px;
   margin: 1rem;
@@ -163,20 +168,31 @@ main {
   box-sizing: border-box;
 }
 
-.zone{
+.new-item:hover {
+  opacity: 75%;
+  cursor: pointer;
+}
+
+.zone {
   height: 500px;
   width: 500px;
-  background-color: #d48787be;
+  background-color: rgba(212, 135, 135, 0.7450980392);
   opacity: 100%;
 }
 
-.zone:hover{
+.zone:hover {
   opacity: 50%;
 }
 
+.element:hover {
+  opacity: 75%;
+}
+
+.selected {
+  border: 5px solid red;
+}
 
 /* --------------------------- */
-
 .resizable {
   background: white;
   width: 100px;
@@ -282,4 +298,4 @@ main {
   right: -5px;
   bottom: -5px;
   cursor: nwse-resize;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */

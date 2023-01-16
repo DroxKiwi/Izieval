@@ -146,7 +146,7 @@ function positionTableContainer(e){
   // we take from the option the parent who it is the selected tag
   const select = option.parentNode;
   // we take from the select tag id value the index
-  let index = getIndexFromFullId(select.id);
+  let index = getOnlyIndex(select.id);
   // we search for the tableContainer with the same index
   const tableContainer = findOne('tableContainer', index);
   const ai = 'align-items-';
@@ -190,9 +190,9 @@ function scaleContainer(e, index){
   // function findOne is coming from general.js
   // first we extract the element from the variable 
   let eTarget = e.target;
-  // function getIndexFromFullId from general.js
+  // function getOnlyIndex from general.js
   // we split it to grap the index 
-  let eTargetInd = getIndexFromFullId(eTarget.id)
+  let eTargetInd = getOnlyIndex(eTarget.id)
   // we verify if its a button from the containerItem
   if (eTarget.classList.contains('SBCI')){
     var element = findOne('containerItem', eTargetInd);
@@ -232,7 +232,7 @@ function scaleContainer(e, index){
 
 // this function return the superior index of col-N
 function superiorColClass(colClass){
-  let ind = parseInt(getIndexFromFullId(colClass), 10);
+  let ind = parseInt(getOnlyIndex(colClass), 10);
   ind++;
   let result = 'col-' + ind.toString();
   return result;
@@ -240,7 +240,7 @@ function superiorColClass(colClass){
 
 // this function return the inferior index of col-N
 function inferiorColClass(colClass){
-  let ind = parseInt(getIndexFromFullId(colClass), 10);
+  let ind = parseInt(getOnlyIndex(colClass), 10);
   ind--;
   let result = 'col-' + ind.toString();
   return result;
