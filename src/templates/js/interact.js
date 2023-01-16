@@ -20,13 +20,13 @@ interact('.selected')
 
       // call this function on every dragend event
       end (event) { 
-        var textEl = event.target.querySelector('p')
-
-        textEl && (textEl.textContent =
-          'moved a distance of ' +
-          (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
-                    Math.pow(event.pageY - event.y0, 2) | 0))
-            .toFixed(2) + 'px')
+        //var textEl = event.target.querySelector('p')
+//
+        //textEl && (textEl.textContent =
+        //  'moved a distance of ' +
+        //  (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+        //            Math.pow(event.pageY - event.y0, 2) | 0))
+        //    .toFixed(2) + 'px')
       }
     }
   })
@@ -40,6 +40,16 @@ interact('.selected')
         var x = (parseFloat(target.getAttribute('data-x')) || 0)
         var y = (parseFloat(target.getAttribute('data-y')) || 0)
 
+        console.log(target)
+        if (target.classList.contains("textAreaBorder")){
+          targetChild = target.childNodes[1]
+          console.log(targetChild)
+          console.log(event.rect.width)
+          targetChild.style.width = event.rect.width
+          console.log(event.rect.height)
+          targetChild.style.height = (event.rect.height - 50) + 'px'
+        }
+
         // update the element's style
         target.style.width = event.rect.width + 'px'
         target.style.height = event.rect.height + 'px'
@@ -52,7 +62,7 @@ interact('.selected')
 
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
-        target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
+        //target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
       }
     },
     modifiers: [

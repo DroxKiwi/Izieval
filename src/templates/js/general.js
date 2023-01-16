@@ -2,7 +2,7 @@
 function generateIdWithIncrementation(id){
     // using incrementation to generate unique id for card_div
     //var parsSumEntitys = parseInt(index, 10) + 1;
-    var tabElement = findAll(id)
+    var tabElement = findAllById(id)
     if (tabElement.length != 0){
         var lastElementId = tabElement[tabElement.length-1].id
     }
@@ -27,7 +27,7 @@ function generateIdWithoutIncrementation(id, index){
 // return a table with all entity by ID 
 // To work it need to be part of the system notation : entityName-INDEX or it will not work
 
-function findAll(id){
+function findAllById(id){
     const errorMargin = 50;
     var errorMarginTemp = errorMargin; // this local const is here to define when we stop to search (user can create and delete entity and that make the count not linear (1, 3, 8, 9, .., n))
     var i = 1;
@@ -51,7 +51,7 @@ function findAll(id){
 }
 
 // return DOM element from id and index
-function findOne(id, index){
+function findOneById(id, index){
     var temp = id+'-'+index;
     if (document.getElementById(temp)){
         return document.getElementById(temp);
@@ -85,7 +85,7 @@ function isEmpty(element){
 // function in work, it is used to scale empty container
 function scaleContentItemAuto(){
     const emptyContentBasicHeight = 100;
-    let contentItems = findAll('contentItem');
+    let contentItems = findAllById('contentItem');
     for (let i = 0; i < contentItems.length; i++){
         if (isEmpty(contentItems[i])){
             contentItems[i].style.height = emptyContentBasicHeight + 'px'

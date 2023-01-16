@@ -59,8 +59,11 @@
                     </div>
 
                     tools 2.0 / new items dragable
-                    <div id="grid-snap-item" class="new-item" onclick="newItem(event)">
-                      <p>click me to create a new item</p>
+                    <div id="gridSnapItem" class="new-item gridSnap" onclick="addItem(event)">
+                      <p>new grid snap</p>
+                    </div>
+                    <div id="textAreaItem" class="new-item textArea" onclick="addItem(event)">
+                      <p>new text area</p>
                     </div>
                   </div>
                 </div>
@@ -73,6 +76,12 @@
 
           
           <div id="page" class="page col-8" onclick="selectElement(event)">
+            <div id="gridSnap-1" class="gridSnap draggable yes-drop element" onclick="selectElement(event)" ondblclick="modifElement(event)">
+              <p>grid snap</p>/
+            </div>
+            <div id="textArea-1" class="textAreaBorder draggable yes-drop element">
+              <textarea class="textAreaInput" type="textArea" value="text area test" onclick="selectElement(event)" ondblclick="modifElement(event)"></textarea>
+            </div>
 
             <div class="dropzone zone">
 
@@ -99,6 +108,8 @@ integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1z
     <!-- Interact library -->
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-git.js"></script>
     <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
     <!-- JS script file // important to keep the same order /_!_\ -->
