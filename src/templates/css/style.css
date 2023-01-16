@@ -206,8 +206,9 @@ main {
 }
 
 .textAreaBorder {
-  width: 100%;
+  width: 300px;
   height: auto;
+  min-height: 50px;
   padding: 20px;
   background-color: transparent;
   /* This makes things *much* easier */
@@ -219,7 +220,7 @@ main {
 }
 
 textarea {
-  border: none !important;
+  resize: none !important;
 }
 
 /* --------------------------- */

@@ -40,19 +40,31 @@ interact('.selected')
         var x = (parseFloat(target.getAttribute('data-x')) || 0)
         var y = (parseFloat(target.getAttribute('data-y')) || 0)
 
-        console.log(target)
+
+        // Condition if its a textArea
         if (target.classList.contains("textAreaBorder")){
-          targetChild = target.childNodes[1]
-          console.log(targetChild)
-          console.log(event.rect.width)
-          targetChild.style.width = event.rect.width
-          console.log(event.rect.height)
-          targetChild.style.height = (event.rect.height - 50) + 'px'
+          console.log(target)
+          targetChild = target.childNodes[0]
+          if (event.rect.width > 300){
+            targetChild.style.width = (event.rect.width - 50) + 'px'
+            target.style.width = event.rect.width + 'px'
+          }
+          if (event.rect.height > 80){
+            targetChild.style.height = (event.rect.height - 50) + 'px'
+            target.style.height = event.rect.height + 'px'
+          }
         }
 
-        // update the element's style
-        target.style.width = event.rect.width + 'px'
-        target.style.height = event.rect.height + 'px'
+        else if (target.classList.contains("gridSnap")) {
+          // update the element's style
+
+          if (event.rect.width > 200){
+            target.style.width = event.rect.width + 'px'
+          }
+          if (event.rect.height > 100){
+            target.style.height = event.rect.height + 'px'
+          }
+        }
 
         // translate when resizing from top or left edges
         x += event.deltaRect.left

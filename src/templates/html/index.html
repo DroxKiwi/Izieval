@@ -62,7 +62,7 @@
                     <div id="gridSnapItem" class="new-item gridSnap" onclick="addItem(event)">
                       <p>new grid snap</p>
                     </div>
-                    <div id="textAreaItem" class="new-item textArea" onclick="addItem(event)">
+                    <div id="textAreaItem" class="new-item textAreaBorder" onclick="addItem(event)">
                       <p>new text area</p>
                     </div>
                   </div>
@@ -79,8 +79,8 @@
             <div id="gridSnap-1" class="gridSnap draggable yes-drop element" onclick="selectElement(event)" ondblclick="modifElement(event)">
               <p>grid snap</p>/
             </div>
-            <div id="textArea-1" class="textAreaBorder draggable yes-drop element">
-              <textarea class="textAreaInput" type="textArea" value="text area test" onclick="selectElement(event)" ondblclick="modifElement(event)"></textarea>
+            <div id="textArea-1" class="textAreaBorder draggable yes-drop element"  onclick="selectElement(event)" ondblclick="modifElement(event)">
+              <textarea class="textAreaInput">text area test</textarea>
             </div>
 
             <div class="dropzone zone">

@@ -374,17 +374,15 @@ function addItem(e){
     }
 }
 
-function newTextArea(e){
+function newTextArea(){
     var page = document.getElementById('page')
     var div = document.createElement('div')
-    var input = document.createElement('input')
-    input.innerHTML = "You can write now !"
-    input.type = "text"
-    input.size = "10"
-    input.value = "text area"
-    div.appendChild(input)
+    var textarea = document.createElement('textarea')
+    textarea.innerHTML = "You can write now !"
+    textarea.className = "textAreaInput"
+    div.appendChild(textarea)
     div.id = generateIdWithIncrementation('textArea')
-    div.className = "textArea draggable yes-drop element"
+    div.className = "textAreaBorder draggable yes-drop element"
     div.addEventListener("dblclick", modifElement)
     div.addEventListener("click", selectElement)
     page.appendChild(div)
