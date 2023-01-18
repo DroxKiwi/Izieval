@@ -20,6 +20,7 @@ interact('.selected')
 
       // call this function on every dragend event
       end (event) { 
+        renderjspng()
         //var textEl = event.target.querySelector('p')
 //
         //textEl && (textEl.textContent =
