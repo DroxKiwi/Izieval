@@ -1,3 +1,4 @@
+
 // target elements with the "draggable" class
 interact('.selected')
   .draggable({
@@ -21,6 +22,9 @@ interact('.selected')
       // call this function on every dragend event
       end (event) { 
         renderjspng()
+        historyStack()
+
+
         //var textEl = event.target.querySelector('p')
 //
         //textEl && (textEl.textContent =
@@ -44,7 +48,6 @@ interact('.selected')
 
         // Condition if its a textArea
         if (target.classList.contains("textAreaBorder")){
-          console.log(target)
           targetChild = target.childNodes[0]
           if (event.rect.width > 300){
             targetChild.style.width = (event.rect.width - 50) + 'px'
@@ -76,6 +79,10 @@ interact('.selected')
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
         //target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
+      },
+      end (event){
+        renderjspng()
+        historyStack()
       }
     },
     modifiers: [

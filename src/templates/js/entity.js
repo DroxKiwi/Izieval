@@ -289,7 +289,7 @@ function createTextCard(e) {
 function newCanvas(ind){
     var canvas = document.createElement('div')
     canvas.className = 'canvas'
-    canvas.id = generateIdWithoutIncrementation(ind, 'canvas')
+    canvas.id = generateIdWithoutIncrementation(ind, 'canvasSide')
 
     var offcanvas = document.createElement('div')
     offcanvas.id = generateIdWithoutIncrementation(ind, 'offcanvas')
@@ -364,6 +364,7 @@ function createGroupContainer(nb){
 
 // v4
 
+// Entity creation
 
 function addItem(e){
     if (e.target.id == "gridSnapItem"){
@@ -386,6 +387,10 @@ function newTextArea(){
     div.addEventListener("dblclick", modifElement)
     div.addEventListener("click", selectElement)
     page.appendChild(div)
+    historyStack()
+    document.body.click()
+    historyStack()
+    document.getElementById('canvasAction').click()
 }
 
 function newGridSnap(){
@@ -399,7 +404,11 @@ function newGridSnap(){
     div.addEventListener("dblclick", modifElement)
     div.addEventListener("click", selectElement)
     page.appendChild(div)
+    document.body.click()
+    historyStack()
+    document.getElementById('canvasAction').click()
 }
+
 
 // selection function v1
 function selectElement(e){
@@ -410,7 +419,6 @@ function selectElement(e){
         }
         else if (e.altKey && !e.ctrlKey){
             var elTab = findAllById(getOnlyId(element.id))
-            console.log(getOnlyId(element.id))
             for (let i = 0; i < elTab.length; i++){
                 elTab[i].classList.add("selected")
             }
@@ -418,7 +426,6 @@ function selectElement(e){
         else if (!e.ctrlKey && !e.altKey && !element.classList.contains("page")){
             var elTab = document.getElementsByClassName("element")
             //var elTab = findAllById(element.id)
-            console.log(elTab)
             for (let i = 0; i < elTab.length; i++){
                 elTab[i].classList.remove("selected")
             }
@@ -431,41 +438,6 @@ function selectElement(e){
             }
         }    
     }
-
-    /*
-    if (e.ctrlKey && !e.altKey){
-        if (getOnlyId(element.id) == 'gridSnap'){
-            element.classList.add("selected");
-        }
-        else if (getOnlyId(element.parentNode.id) == 'gridSnap'){
-            element.parentNode.classList.add("selected")
-        }
-    }
-    else if (e.altKey && !e.ctrlKey){
-        var elTab = findAllById('gridSnap')
-        for (let i = 0; i < elTab.length; i++){
-            elTab[i].classList.add("selected")
-        }
-    }
-    else if (!e.ctrlKey && !e.altKey){
-        var elTab = findAllById('gridSnap')
-        for (let i = 0; i < elTab.length; i++){
-            elTab[i].classList.remove("selected")
-        }
-        if (getOnlyId(element.id) == 'gridSnap'){
-            element.classList.add("selected");
-        }
-        else if (getOnlyId(element.parentNode.id) == 'gridSnap'){
-            element.parentNode.classList.add("selected")
-        }
-    }
-    else if (getOnlyId(element.id) == "page") {
-        var elTab = findAllById('gridSnap')
-        for (let i = 0; i < elTab.length; i++){
-            elTab[i].classList.remove("selected")
-        }
-    }
-    */
 }
 
 // modification function v1

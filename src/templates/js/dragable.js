@@ -1,13 +1,13 @@
-/* All the funtions link to the management of drag process and entity stats */
+// All the funtions link to the management of drag process and entity stats 
 
-/* Events fired on the drag target || After the start of the dragging process */
+// Events fired on the drag target || After the start of the dragging process 
 document.addEventListener("dragstart", function(event) {
   event.dataTransfer.setData("Text", event.target.id);
   dragStart(event.target);
   //resetCard(event.target.parentNode);
 });
 
-/* Events fired on the drop target || During the dragging process */
+// Events fired on the drop target || During the dragging process 
 document.addEventListener("dragover", function(event) {
   event.preventDefault();
   dragInAction();
