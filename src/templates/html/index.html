@@ -96,13 +96,15 @@
                   </div>
                 </div>
             </div>
-            
+
 
 
             <div class="workspace">
               <p class="description">you can pan and zoom the image using your mouse pointer, mouse wheel, or touch input. no matter how much you zoom and pan, the image never leaves the screen completely. made by <a href="http://snorpey.com" target="_blank">snorpey</a>.</p>
               <div id="workspaceContent" class="workspace-content">
                 <div id="textArea-1" class="textAreaBorder draggable yes-drop element" onclick="selectElement(event)"></div>
+                <div class="test element" onclick="selectElement(event)"></div>
+                <div class="test2 element" onclick="selectElement(event)"></div>
               </div>
             </div>
 
@@ -148,98 +150,3 @@
     <script src="../js/workbench.js"></script>
     <script src="../js/main.js"></script>
 </html>
-
-<!--
-
-<div class="scalable col-1">
-  <div class="scalers">
-    <div id="card1" class="item-container card text-center">
-      <div class="card-header">
-          header
-      </div>
-      <div id="itemEmpty1" class="card-body droptarget" ondrop="drop(event)">
-          <h5 class="card-title">carte vide</h5>
-          <p class="card-text">Ajouter un composant</p>
-          <button type="button" class="btn btn-primary" onclick="createTextCard(event)">+</button>
-      </div>
-      <div class="card-footer text-muted">
-          footer
-      </div>
-    </div>
-    <div class="scaler right"></div>
-    <div class="scaler left"></div>
-  </div>
-</div>
-
-
-
-
-item empty should became itemused once an item create is drop inside
-
-<div id="card1" class="item-container card text-center">
-    <div class="card-header">
-        header
-    </div>
-    <div id="itemEmpty1" class="card-body droptarget" ondrop="drop(event)">
-        <h5 class="card-title">carte vide</h5>
-        <p class="card-text">Ajouter un composant</p>
-        <button type="button" class="btn btn-primary" onclick="createTextCard(event)">+</button>
-    </div>
-    <div class="card-footer text-muted">
-        footer
-    </div>
-  </div>
-
-
-  <div class="scalable col-1">
-  <div class="scalers">
-
-    <div class="scaler right"></div>
-    <div class="scaler left"></div>
-  </div>
-</div>
-
-  <div class="separator">
-    <button type="button" class="btn btn-secondary" onclick="createEmptyCard()">+</button>
-  </div>
-
-
-
-  // Last tools selection 
-
-  <div id="canvas-tools-1" class="TCT col-12">
-  <p>container tools</p>
-  <select title="change align" name="SBTCA" id="SBTCA-1" class="SBTCA">
-    <option selected="selected" value="start" onclick="positionTableContainer(event)">start</option>
-    <option value="end" onclick="positionTableContainer(event)">end</option>
-    <option value="center" onclick="positionTableContainer(event)">center</option>
-    <option value="baseline" onclick="positionTableContainer(event)">baseline</option>
-    <option value="stretch" onclick="positionTableContainer(event)">stretch</option>
-  </select>
-  <select title="change justify" name="SBTCJ" id="SBTCJ-1" class="SBTCJ">
-    <option selected="selected" value="start" onclick="positionTableContainer(event)">start</option>
-    <option value="end" onclick="positionTableContainer(event)">end</option>
-    <option value="center" onclick="positionTableContainer(event)">center</option>
-    <option value="between" onclick="positionTableContainer(event)">between</option>
-    <option value="around" onclick="positionTableContainer(event)">around</option>
-  </select>
-  <button type="button" name="SBTCM" id="SBTCM-1" class="SBTC" onclick="scaleContainer(event, '+')">more</button>
-  <button type="button" name="SBTCL" id="SBTCL-1" class="SBTC" onclick="scaleContainer(event, '-')">less</button>  
-</div>
-<p>item 1 tools</p>
-<div id="canvas-tools-2" class="TCT col-12">
-  <button type="button" name="SBCIM" id="SBCIM-1" class="SBCI" onclick="scaleContainer(event, '+')">more</button>
-  <button type="button" name="SBCIL" id="SBCIL-1" class="SBCI" onclick="scaleContainer(event, '-')">less</button>
-</div>
-
-  // Last resizable div
-
-  <div class="resizable">
-    <div class="resizers">
-      <div class="resizer top-right"></div>
-      <div class="resizer top-left"></div>
-      <div class="resizer bottom-left"></div>
-      <div class="resizer bottom-right"></div>
-    </div>
-  </div>
--->

@@ -177,4 +177,11 @@ a {
   height: 500px;
   background-color: red;
   position: absolute;
+}
+
+.test2 {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(26, 255, 0);
+  position: absolute;
 }/*# sourceMappingURL=style.css.map */

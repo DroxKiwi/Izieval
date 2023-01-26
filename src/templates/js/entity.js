@@ -103,6 +103,6 @@ function modifElement(e){
 
     }
     else {
-        console.log("dblclick fal   se")
+        console.log("dblclick false")
     }
 }

@@ -21,7 +21,7 @@ interact('.selected')
 
       // call this function on every dragend event
       end (event) { 
-        renderjspng()
+        //renderjspng()
         historyStack()
 
 
@@ -81,7 +81,7 @@ interact('.selected')
         //target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
       },
       end (event){
-        renderjspng()
+        //renderjspng()
         historyStack()
       }
     },
