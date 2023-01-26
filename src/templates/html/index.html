@@ -14,10 +14,6 @@
 
         <!-- header -->
         <header class="row justify-content-around align-items-center  text-center">
-            <h1 class="col">Izieval 0.1</h1>
-            <p class="col">Wireframe with Bootstrap 5</p>
-        </header>
-
         <!-- toolbar -->
         <div class="row align-items-center toolbar">
           <div class="col-1 dateTime" id="date"></div>
@@ -28,8 +24,12 @@
           <button type="button" class="btn btn-secondary col-1" onclick="load()">load</button>
           <button type="button" class="btn btn-secondary col-1" onclick="undo()">undo</button>
           <button type="button" class="btn btn-secondary col-1" onclick="redo()">redo</button>
-
+          <h1 class="col" style="color: white;">Izieval 0.1</h1>
+          <p class="col" style="color: white;">Wireframe with Bootstrap 5</p>
         </div>
+
+      </header>
+
 
         <!-- Main content
             A card can only contain 1 card-header className element !!! 
@@ -97,20 +97,14 @@
                 </div>
             </div>
 
-          <div id="directViewContainer" class="col-4 renderpdf">
-            <embed id="directViewer" src="" width="500px" height="720px" />
-          </div>
 
-
-          
-          <div id="page" class="page col-8" onclick="selectElement(event)">
-
-            <div class="dropzone zone">
-
+            <div class="workspace">
+              <p class="description">you can pan and zoom the image using your mouse pointer, mouse wheel, or touch input. no matter how much you zoom and pan, the image never leaves the screen completely. made by <a href="http://snorpey.com" target="_blank">snorpey</a>.</p>
+              <div id="workspaceContent" class="workspace-content">
+                <div id="textArea-1" class="textAreaBorder draggable yes-drop element" onclick="selectElement(event)"></div>
+              </div>
             </div>
-          </div>
 
-          <canvas id="canvas"></canvas>
         </main>
 
         <!-- temporary zone for cloning content during dropping process -->
@@ -147,10 +141,10 @@
     <script src="../js/scalable.js"></script>
     <script src="../js/entity.js"></script>
     <script src="../js/canvasSide.js"></script>
-    <script src="../js/canvas.js"></script>
     <script src="../js/interact.js"></script>
     <script src="../js/jspdf.js"></script>
     <script src="../js/stacking.js"></script>
+    <script src="../js/workbench.js"></script>
     <script src="../js/main.js"></script>
 </html>
 

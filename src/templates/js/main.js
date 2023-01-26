@@ -11,7 +11,7 @@ function start(){
   window.addEventListener("load", (event) => {
     console.log("page is fully loaded");
   });
-  renderjspng()
+  //renderjspng()
   // Keybind
   document.body.addEventListener('keydown', function(event) {
     // Keybind of delete key
@@ -30,7 +30,7 @@ function start(){
       redo()
     }
   })
-  historyStack(document.body.cloneNode(true))
+  //historyStack(document.body.cloneNode(true))
 }
 
 function end(){

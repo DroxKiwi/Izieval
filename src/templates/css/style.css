@@ -1,117 +1,10 @@
-body {
-  font-size: 16px;
-}
-
-header {
-  height: 100px;
-  background-color: darkcyan;
-  color: white;
-}
-
-nav {
-  height: 80px;
-  background-color: darkgoldenrod;
-}
-
-.lvl-1 {
-  z-index: 2;
-}
-
-.lvl-2 {
-  z-index: 3;
-}
-
-.lvl-3 {
-  z-index: 4;
-}
-
-.container-items {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.container-items-1 {
-  height: 200px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-
-.container-items-2 {
-  height: 300px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-
-.container-items-3 {
-  height: 400px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-
-.draggable-box {
-  background: green;
-  height: 90%;
-  width: 90%;
-  right: 0;
-  top: 0;
-}
-
-.item {
-  background-color: grey;
-}
-
 .toolbar {
   background-color: black;
-  height: 100px;
-}
-
-.droptarget {
-  background-color: rgb(225, 225, 225);
-  height: 100px;
-}
-
-.btn-header {
-  height: 100%;
-}
-
-.dropTargetInAction {
-  height: 100%;
-  width: 100%;
-}
-
-.cloningzone {
-  height: 100px;
-  width: 100px;
-  background-color: black;
-  color: white;
-  visibility: hidden;
-}
-
-.grid-1 {
-  background-color: blvisibilityue;
-  border: 2px solid green;
-}
-
-main {
-  border: 5px solid green;
-  padding-right: 2%;
 }
 
 .renderpdf {
   position: fixed;
   left: 0vh;
-}
-
-.toppdfviewer {
-  height: 15px;
-  background-color: black;
-  margin-left: 5%;
-  margin-right: 90%;
-}
-
-.btncheckbox {
-  color: white;
 }
 
 .dateTime {
@@ -121,19 +14,6 @@ main {
 .page {
   border: 5px solid purple;
   height: 1810px;
-}
-
-.tableContainer {
-  height: auto;
-  border: 5px solid #00f2ff;
-  background-color: red;
-  height: 470px;
-}
-
-.containerItems {
-  border: 5px solid yellow;
-  cursor: move;
-  height: 150px;
 }
 
 .hide {
@@ -222,110 +102,79 @@ textarea {
   resize: none !important;
 }
 
-/* --------------------------- */
-.resizable {
-  background: white;
-  width: 100px;
-  height: 100px;
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+/* --------------------------- Canvas section */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
 }
 
-.resizable .resizers {
+#canvas {
   width: 100%;
   height: 100%;
-  border: 3px solid #4286f4;
+  background-color: black;
+}
+
+.test {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  background-color: red;
+}
+
+/* --------------------------- workbench */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.resizable .resizers .resizer {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%; /*magic to turn square into circle*/
-  background: white;
-  border: 3px solid #4286f4;
-  position: absolute;
-}
-
-.resizable .resizers .resizer.top-left {
-  left: -5px;
-  top: -5px;
-  cursor: nwse-resize; /*resizer cursor*/
-}
-
-.resizable .resizers .resizer.top-right {
-  right: -5px;
-  top: -5px;
-  cursor: nesw-resize;
-}
-
-.resizable .resizers .resizer.bottom-left {
-  left: -5px;
-  bottom: -5px;
-  cursor: nesw-resize;
-}
-
-.resizable .resizers .resizer.bottom-right {
-  right: -5px;
-  bottom: -5px;
-  cursor: nwse-resize;
-}
-
-.scalable {
-  background: brown;
-  height: auto;
-  position: absolute;
-}
-
-.scalable .scalers {
+body {
   width: 100%;
   height: 100%;
-  border: 3px solid #4286f4;
-  box-sizing: border-box;
 }
 
-.scalable .scalers .scaler {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%; /*magic to turn square into circle*/
-  background: white;
-  border: 3px solid #4286f4;
+.workspace {
+  background-color: #999;
   position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(3, 0, 30);
 }
 
-.scalable .scalers .scaler.left {
-  left: -5px;
-  top: 50%;
-  cursor: w-resize; /*resizer cursor*/
+.workspace-content {
+  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  transform-origin: 0 0;
+  width: 200px;
+  height: 200px;
 }
 
-.scalable .scalers .scaler.right {
-  right: -5px;
-  top: 50%;
-  cursor: e-resize;
+.workspace-content img {
+  display: block;
+  width: 100%;
 }
 
-.scalable .scalers .scaler.top-left {
-  left: -5px;
-  top: -5px;
-  cursor: nwse-resize; /*resizer cursor*/
+.description {
+  position: absolute;
+  z-index: 3;
+  top: 42px;
+  left: 50px;
+  font-family: sans-serif;
+  color: #333;
+  font-size: 12px;
+  line-height: 18px;
+  max-width: calc(100% - 100px);
 }
 
-.scalable .scalers .scaler.top-right {
-  right: -5px;
-  top: -5px;
-  cursor: nesw-resize;
+a {
+  color: #DF4124;
 }
 
-.scalable .scalers .scaler.bottom-left {
-  left: -5px;
-  bottom: -5px;
-  cursor: nesw-resize;
-}
-
-.scalable .scalers .scaler.bottom-right {
-  right: -5px;
-  bottom: -5px;
-  cursor: nwse-resize;
-} /*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
+.test {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  position: absolute;
+}/*# sourceMappingURL=style.css.map */
